@@ -6,13 +6,16 @@ node {
 
 	stage('Build') {
                 sh 'mvn -B -DskipTests clean package'
+		echo "Some code compilation here..."
         }
         stage('Test') {
                 sh 'mvn test'
                junit 'target/surefire-reports/*.xml'
+	       echo "Some code compilation here..."
         }
         stage('Deliver') {
                 sh './jenkins/scripts/deliver.sh'
+		echo "Some code compilation here..."
         }
 
 }

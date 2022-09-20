@@ -13,8 +13,7 @@ node {
         }
         stage('Deploy') {
             sh './jenkins/scripts/deliver.sh'
-            sleep(time: 60, unit: "SECONDS")
-            input message: 'Sudah selesai menggunakan Java App? (Klik "Proceed" untuk mengakhiri)'
+            sleep(time: 60, unit: "SECONDS")\
         }	
     }
 }

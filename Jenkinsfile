@@ -1,5 +1,6 @@
 node {
      docker.image('maven:3.8.1-adoptopenjdk-11').inside('-v /root/.m2:/root/.m2') {
+        checkout scm
         stage('Build') {
             sh 'mvn -B -DskipTests clean package'
         }
@@ -13,7 +14,6 @@ node {
         stage('Deploy') {
             sh './jenkins/scripts/deliver.sh'
             input message: 'Sudah selesai menggunakan Java App? (Klik "Proceed" untuk mengakhiri)'
-            sh './jenkins/scripts/kill.sh'
         }	
     }
 }

@@ -14,6 +14,13 @@ node {
         stage('Deploy') {
             sh './jenkins/scripts/deliver.sh'
             input message: 'Sudah selesai menggunakan Java App? (Klik "Proceed" untuk mengakhiri)'
+            sleep()
         }	
     }
+}
+
+def sleep() {
+    echo "Start"
+    sleep(60)
+    echo "Stop"
 }

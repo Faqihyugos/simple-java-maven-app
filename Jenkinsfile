@@ -19,6 +19,7 @@ node {
     }
 }
 
+@NonCPS
 def sleep() {
     echo "Start"
     sleep(60)
